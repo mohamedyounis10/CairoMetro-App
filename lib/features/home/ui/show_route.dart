@@ -78,7 +78,7 @@ class ShowRoute extends StatelessWidget {
                               borderRadius: BorderRadius.circular(12.0.r),
                               child: IntrinsicHeight(
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment:MainAxisAlignment.spaceBetween,
                                   children: [
                                     // Duration
                                     Expanded(
