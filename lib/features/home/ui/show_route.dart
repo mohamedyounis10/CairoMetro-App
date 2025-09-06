@@ -69,13 +69,13 @@ class ShowRoute extends StatelessWidget {
                   if (cubit.path.isNotEmpty)
                     Container(
                       child: Padding(
-                        padding: EdgeInsets.all(16),
+                        padding: EdgeInsets.all(16.w),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             // Info Chips
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(12.0.r),
                               child: IntrinsicHeight(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -86,11 +86,11 @@ class ShowRoute extends StatelessWidget {
                                         decoration:  BoxDecoration(
                                           color: Color(0xFFE4E9F2),
                                           borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(12),
-                                            bottomLeft: Radius.circular(12),
+                                            topLeft: Radius.circular(12.r),
+                                            bottomLeft: Radius.circular(12.r),
                                           ),
                                         ),
-                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                                        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           mainAxisAlignment: MainAxisAlignment.center,
@@ -98,50 +98,50 @@ class ShowRoute extends StatelessWidget {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.start,
                                               children: [
-                                                const Icon(Icons.access_time_filled, color: Color(0xFF003D6D)),
-                                                const SizedBox(width: 4),
-                                                const Text(
+                                                 Icon(Icons.access_time_filled, color: AppColor.color2),
+                                                 SizedBox(width: 4.w),
+                                                 Text(
                                                   'Time',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    color: Color(0xFF003D6D),
+                                                    color: AppColor.color2,
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                            const SizedBox(height: 4),
+                                             SizedBox(height: 4.h),
                                             Text(
                                               "${cubit.durationMinutes}",
-                                              style: const TextStyle(
+                                              style:  TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 16,
-                                                color: Color(0xFF4B4E53),
+                                                fontSize: 16.sp,
+                                                color: AppColor.grey600,
                                               ),
                                             ),
-                                            const Text(
+                                             Text(
                                               "Minute",
                                               style: TextStyle(
-                                                color: Color(0xFF4B4E53),
-                                                fontSize: 12,
+                                                color:AppColor.grey600,
+                                                fontSize: 12.sp,
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
                                     ),
-                                    SizedBox(width: 7,),
+                                    SizedBox(width: 7.w,),
 
                                     // Number of Stations
                                     Expanded(
                                       child: Container(
-                                        decoration: const BoxDecoration(
+                                        decoration:  BoxDecoration(
                                           color: Color(0xFFE4E9F2),
                                           border: Border(
-                                            left: BorderSide(color: Color(0xFFF1F4F9), width: 1.0),
-                                            right: BorderSide(color: Color(0xFFF1F4F9), width: 1.0),
+                                            left: BorderSide(color: AppColor.back_ground, width: 1.0.w),
+                                            right: BorderSide(color: AppColor.back_ground, width: 1.0.w),
                                           ),
                                         ),
-                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                                        padding:  EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           mainAxisAlignment: MainAxisAlignment.center,
@@ -149,38 +149,38 @@ class ShowRoute extends StatelessWidget {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.start,
                                               children: [
-                                                const Icon(Icons.train, color: Color(0xFF003D6D)),
-                                                const SizedBox(width: 4),
-                                                const Text(
+                                                 Icon(Icons.train, color: AppColor.color2),
+                                                 SizedBox(width: 2.w),
+                                                 Text(
                                                   'Stations',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    color: Color(0xFF003D6D),
+                                                    color: AppColor.color2,
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                            const SizedBox(height: 4),
+                                            SizedBox(height: 4.h),
                                             Text(
                                               "${cubit.numStations}",
-                                              style: const TextStyle(
+                                              style:  TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 16,
-                                                color: Color(0xFF4B4E53),
+                                                fontSize: 16.sp,
+                                                color:AppColor.grey600,
                                               ),
                                             ),
-                                            const Text(
+                                            Text(
                                               "Stations",
                                               style: TextStyle(
-                                                color: Color(0xFF4B4E53),
-                                                fontSize: 12,
+                                                color: AppColor.grey600,
+                                                fontSize: 12.sp,
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
                                     ),
-                                    SizedBox(width: 7,),
+                                    SizedBox(width: 7.w,),
 
                                     // Price
                                     Expanded(
@@ -192,7 +192,7 @@ class ShowRoute extends StatelessWidget {
                                             bottomRight: Radius.circular(12),
                                           ),
                                         ),
-                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                                        padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           mainAxisAlignment: MainAxisAlignment.center,
@@ -200,32 +200,32 @@ class ShowRoute extends StatelessWidget {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.start,
                                               children: [
-                                                const Icon(Icons.attach_money, color: Color(0xFF003D6D)),
-                                                const SizedBox(width: 4),
-                                                const Text(
+                                                 Icon(Icons.attach_money, color: AppColor.color2),
+                                                 SizedBox(width: 4.w),
+                                                 Text(
                                                   'Price',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    color: Color(0xFF003D6D),
+                                                    color: AppColor.color2,
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                            const SizedBox(height: 4),
+                                             SizedBox(height: 4.h),
                                             // Price
                                             Text(
                                               "${cubit.ticketPrice}",
-                                              style: const TextStyle(
+                                              style:  TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 16,
-                                                color: Color(0xFF4B4E53),
+                                                fontSize: 16.sp,
+                                                color: AppColor.grey600,
                                               ),
                                             ),
-                                            const Text(
+                                             Text(
                                               "EGP",
                                               style: TextStyle(
-                                                color: Color(0xFF4B4E53),
-                                                fontSize: 12,
+                                                color: AppColor.grey600,
+                                                fontSize: 12.sp,
                                               ),
                                             ),
                                           ],
@@ -236,7 +236,7 @@ class ShowRoute extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 20.h),
 
                             // Ticket
                             Text(
@@ -247,15 +247,15 @@ class ShowRoute extends StatelessWidget {
                               ),
                             ),
                             Image.asset(cubit.ticketImage),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.h),
 
                             // Trip Description
                             Container(
-                              height: 70,
-                              padding: EdgeInsets.all(10),
-                              decoration: const BoxDecoration(
-                                color: Color(0xffe4e4e4),
-                                borderRadius: BorderRadius.all(Radius.circular(12)),
+                              height: 70.h,
+                              padding: EdgeInsets.all(10.w),
+                              decoration:  BoxDecoration(
+                                color: AppColor.back_ground,
+                                borderRadius: BorderRadius.all(Radius.circular(12.r)),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -266,25 +266,25 @@ class ShowRoute extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 4),
+                                  SizedBox(height: 4.h),
                                   Text(
                                     "Take the line number ${cubit.path.first.line}",
                                     style: TextStyle(
-                                      color: Colors.grey[700],
-                                      fontSize: 14,
+                                      color: AppColor.grey600,
+                                      fontSize: 14.sp,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.h),
 
                             // Route
                             Container(
-                              padding: EdgeInsets.all(16),
+                              padding: EdgeInsets.all(16.w),
                               decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
+                                color: AppColor.back_ground,
+                                borderRadius: BorderRadius.circular(12.r),
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.grey.withOpacity(0.1),
@@ -298,9 +298,9 @@ class ShowRoute extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   Row(
-                                    children: const [
-                                      Icon(Icons.alt_route, color: Color(0xFF003D6D)), // Updated color
-                                      SizedBox(width: 8),
+                                    children:  [
+                                      Icon(Icons.alt_route, color: AppColor.color2), // Updated color
+                                      SizedBox(width: 8.w),
                                       Text(
                                         "Metro route",
                                         style: TextStyle(fontWeight: FontWeight.bold),
@@ -311,23 +311,23 @@ class ShowRoute extends StatelessWidget {
 
                                   // Direction Name
                                   Container(
-                                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                                    padding:  EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
                                     decoration: BoxDecoration(
-                                      color: const Color(0xFFF1F4F9),
-                                      borderRadius: BorderRadius.circular(8),
+                                      color:  AppColor.grey200,
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                     child: Row(
                                       children: [
-                                        const Icon(Icons.looks_one, color: Color(0xFF003D6D), size: 18),
-                                        const SizedBox(width: 8),
+                                         Icon(Icons.looks_one, color:AppColor.color2, size: 18),
+                                         SizedBox(width: 8.w),
                                         Text(
                                           'Line no. ${cubit.path.first.line}',
-                                          style: const TextStyle(fontWeight: FontWeight.bold),
+                                          style: TextStyle(fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
                                   ),
-                                  SizedBox(height: 12),
+                                  SizedBox(height: 12.h),
 
                                   // Display Stations
                                   ...cubit.path.asMap().entries.map((entry) {
@@ -343,16 +343,16 @@ class ShowRoute extends StatelessWidget {
                                     if (isLineChange) {
                                       stationWidgets.add(
                                         Padding(
-                                          padding:  EdgeInsets.symmetric(vertical: 16.0),
+                                          padding:  EdgeInsets.symmetric(vertical: 16.0.w),
                                           child: Row(
                                             children: [
                                               Icon(Icons.sync_alt, color: AppColor.color1),
-                                              SizedBox(width: 8),
+                                              SizedBox(width: 8.w),
                                               Text(
                                                 "Change Line",
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  color: Color(0xFFC04F03),
+                                                  color: AppColor.color1,
                                                 ),
                                               ),
                                             ],
@@ -361,15 +361,15 @@ class ShowRoute extends StatelessWidget {
                                       );
                                       stationWidgets.add(
                                         Container(
-                                          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                                          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F9),
-                                            borderRadius: BorderRadius.circular(8),
+                                            color: AppColor.grey200,
+                                            borderRadius: BorderRadius.circular(8.r),
                                           ),
                                           child: Row(
                                             children: [
-                                              Icon(Icons.looks_one, color: Color(0xFF003D6D), size: 18),
-                                              SizedBox(width: 8),
+                                              Icon(Icons.looks_one, color:AppColor.color2, size: 18),
+                                              SizedBox(width: 8.w),
                                               Text(
                                                 'Line no. ${s.line}',
                                                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -378,7 +378,7 @@ class ShowRoute extends StatelessWidget {
                                           ),
                                         ),
                                       );
-                                      stationWidgets.add(const SizedBox(height: 12));
+                                      stationWidgets.add( SizedBox(height: 12.h));
                                     }
 
                                     stationWidgets.add(
@@ -387,17 +387,17 @@ class ShowRoute extends StatelessWidget {
                                           Row(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              // 🔹 Station dot and line
+                                              // Station dot and line
                                               Container(
-                                                width: 18,
-                                                margin: const EdgeInsets.only(left: 4),
+                                                width: 18.w,
+                                                margin:  EdgeInsets.only(left: 4.w),
                                                 child: Column(
                                                   children: [
                                                     if (!isFirst)
                                                       Container(
-                                                        height: 10,
-                                                        width: 2,
-                                                        color: const Color(0xFFC04F03),
+                                                        height: 10.h,
+                                                        width: 2.w,
+                                                        color: AppColor.color1,
                                                       ),
                                                     Icon(
                                                       isFirst || isLast ? Icons.circle : Icons.circle_outlined,
@@ -406,14 +406,14 @@ class ShowRoute extends StatelessWidget {
                                                     ),
                                                     if (!isLast)
                                                       Container(
-                                                        height: 10,
-                                                        width: 2,
-                                                        color: AppColor.color2 ,
+                                                        height: 10.h,
+                                                        width: 2.w,
+                                                        color: AppColor.color1 ,
                                                       ),
                                                   ],
                                                 ),
                                               ),
-                                              const SizedBox(width: 8),
+                                              SizedBox(width: 8.w),
                                               Expanded(
                                                 child: Text(
                                                   s.name,
@@ -426,13 +426,13 @@ class ShowRoute extends StatelessWidget {
                                               if (isLast)
                                                 Icon(
                                                   Icons.check_circle,
-                                                  color: const Color(0xFF003D6D),
+                                                  color:  AppColor.color2,
                                                   size: 20,
                                                 ),
                                             ],
                                           ),
                                           if (!isLast)
-                                            const SizedBox(height: 12),
+                                             SizedBox(height: 12.h),
                                         ],
                                       ),
                                     );

@@ -6,7 +6,6 @@ import 'package:cairometro/features/home/ui/ticket_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../core/widgets/custom_button.dart';
 
 class HomeScreen extends StatelessWidget{
@@ -78,7 +77,7 @@ class HomeScreen extends StatelessWidget{
 
             // Buttons
             CustomButton(
-              width: 330.w,
+              width: 350.w,
               text: "Tickets",
               onTap: () {
                 cubit.ticketPage();
@@ -86,7 +85,7 @@ class HomeScreen extends StatelessWidget{
             ),
             SizedBox(height: 10.h),
             CustomButton(
-              width: 330.w,
+              width: 350.w,
               text: "Metro Map",
               backgroundColor: AppColor.color2,
               onTap: () {

@@ -1,10 +1,9 @@
 import 'package:cairometro/features/home/cubit/state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
-
 import '../../../models/line.dart';
-import '../../../models/station.dart';
 import '../../../models/search_record.dart';
+import '../../../models/station.dart';
 import '../../../models/app_user.dart';
 
 class HomeCubit extends Cubit<HomeState>{
@@ -107,7 +106,6 @@ class HomeCubit extends Cubit<HomeState>{
         }
       }
     }
-
     // BFS shortest path
     final idsPath = _shortestPathBfs(
       startId: from!.id,
@@ -121,6 +119,40 @@ class HomeCubit extends Cubit<HomeState>{
     durationMinutes = numStations * minutesPerHop;
 
     emit(TicketUpdated());
+  }
+
+  Future<void> saveTripToHistory() async {
+    final userBox = await Hive.openBox<AppUser>('user');
+    currentUser ??= userBox.get('local');
+    if (currentUser == null) return;
+
+    if (from == null || to == null || path.isEmpty) return;
+
+    final record = SearchRecord(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      query: "${from!.name} → ${to!.name}",
+      hasMatch: true,
+      timestamp: DateTime.now(),
+      fromStationId: from!.id,
+      fromStationName: from!.name,
+      toStationId: to!.id,
+      toStationName: to!.name,
+      ticketPrice: ticketPrice,
+      numStations: numStations,
+      durationMinutes: durationMinutes,
+      routePath: path.map((s) => s.id).toList(),
+    );
+
+    final updated = AppUser(
+      id: currentUser!.id,
+      name: currentUser!.name,
+      history: [record, ...currentUser!.history].take(50).toList(),
+    );
+
+    await userBox.put(updated.id, updated);
+    currentUser = updated;
+
+    emit(SearchResultsUpdated());
   }
 
   List<String> _shortestPathBfs({
@@ -207,53 +239,6 @@ class HomeCubit extends Cubit<HomeState>{
     searchQuery = '';
     searchResults = [];
     emit(SearchResultsUpdated());
-  }
-
-  Future<void> saveSearchResult({required String query, Station? matched}) async {
-    final userBox = await Hive.openBox<AppUser>('user');
-    currentUser ??= userBox.get('local');
-    if (currentUser == null) return;
-
-    // Calculate ticket information if we have both from and to stations
-    int? ticketPrice;
-    int? numStations;
-    int? durationMinutes;
-    List<String>? routePath;
-
-    if (from != null && to != null) {
-      // Recalculate to get current path and price
-      _recalculate();
-      ticketPrice = this.ticketPrice;
-      numStations = this.numStations;
-      durationMinutes = this.durationMinutes;
-      routePath = path.map((s) => s.id).toList();
-    }
-
-    final record = SearchRecord(
-      id: DateTime.now().microsecondsSinceEpoch.toString(),
-      query: query,
-      hasMatch: matched != null,
-      timestamp: DateTime.now(),
-      matchedStationId: matched?.id,
-      matchedStationName: matched?.name,
-      fromStationId: from?.id,
-      fromStationName: from?.name,
-      toStationId: to?.id,
-      toStationName: to?.name,
-      ticketPrice: ticketPrice,
-      numStations: numStations,
-      durationMinutes: durationMinutes,
-      routePath: routePath,
-    );
-
-    final updated = AppUser(
-      id: currentUser!.id,
-      name: currentUser!.name,
-      history: [record, ...currentUser!.history].take(50).toList(),
-    );
-
-    await userBox.put(updated.id, updated);
-    currentUser = updated;
   }
 
   Future<void> clearHistory() async {

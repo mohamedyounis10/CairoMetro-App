@@ -26,6 +26,7 @@ class CustomTextFormFieldContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 50.h,
       width: 380.w,
       decoration: BoxDecoration(
         color: AppColor.transparent,
@@ -38,7 +39,7 @@ class CustomTextFormFieldContainer extends StatelessWidget {
         validator: validator,
         onChanged: onChanged,
         decoration: InputDecoration(
-          labelText: labelText,
+          hintText: labelText,
           labelStyle: TextStyle(
             color: AppColor.Black,
             fontSize: 14.sp,
@@ -53,14 +54,14 @@ class CustomTextFormFieldContainer extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
             borderSide: BorderSide(
               color: AppColor.border_color,
-              width: 1.5,
+              width: 1.5.w,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.r),
             borderSide: BorderSide(
               color:  AppColor.border_color,
-              width: 2,
+              width: 2.w,
             ),
           ),
         ),

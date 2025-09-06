@@ -72,11 +72,12 @@ class TicketScreen extends StatelessWidget {
             centerTitle: true,
           ),
           body: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16.w),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  // Logo + Word
                   Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -114,15 +115,17 @@ class TicketScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 30.h),
 
+                  // From
                   Container(
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: AppColor.grey200,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.r),
                       boxShadow: [
                         BoxShadow(
                           color: AppColor.black26,
-                          blurRadius: 4,
-                          offset: const Offset(0, 4),
+                          blurRadius: 4.r,
+                          offset: Offset(0, 4.h),
                         ),
                       ],
                     ),
@@ -134,35 +137,35 @@ class TicketScreen extends StatelessWidget {
                         filled: true,
                         fillColor: AppColor.grey200,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.r),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
                       ),
                       items: fromStations.map((s) {
                         return DropdownMenuItem(
                           value: s,
-                          child: Text(s.name),
+                          child: Text(s.name, style: TextStyle(fontSize: 14.sp)),
                         );
                       }).toList(),
                       onChanged: (v) {
-                        if (v != null) {
-                          cubit.setFrom(v);
-                        }
+                        if (v != null) cubit.setFrom(v);
                       },
                     ),
                   ),
                   SizedBox(height: 17.h),
 
+                  // To
                   Container(
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: AppColor.grey200,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.r),
                       boxShadow: [
                         BoxShadow(
                           color: AppColor.black26,
-                          blurRadius: 4,
-                          offset: const Offset(0, 4),
+                          blurRadius: 4.r,
+                          offset: Offset(0, 4.h),
                         ),
                       ],
                     ),
@@ -174,15 +177,15 @@ class TicketScreen extends StatelessWidget {
                         filled: true,
                         fillColor: AppColor.grey200,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.r),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
                       ),
                       items: toStations.map((s) {
                         return DropdownMenuItem(
                           value: s,
-                          child: Text(s.name),
+                          child: Text(s.name, style: TextStyle(fontSize: 14.sp)),
                         );
                       }).toList(),
                       onChanged: (v) {
@@ -192,14 +195,16 @@ class TicketScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 50.h),
 
+                  // Show Route
                   CustomButton(
                     width: 330.w,
                     backgroundColor: AppColor.color2,
                     text: "Show Route",
-                    onTap: () {
+                    onTap: () async {
                       if (cubit.from == null || cubit.to == null) {
                         cubit.emptyFiled();
                       } else {
+                        await context.read<HomeCubit>().saveTripToHistory();
                         cubit.nextPage();
                       }
                     },

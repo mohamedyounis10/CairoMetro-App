@@ -37,8 +37,8 @@ class MapScreen extends StatelessWidget {
                       // Image
                       Image.asset(
                         'assets/images/logo.png',
-                        width: 150,
-                        height: 150,
+                        width: 150.w,
+                        height: 150.h,
                       ),
 
                       // Text
@@ -46,13 +46,13 @@ class MapScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text('Cairo',style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 25.sp,
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.bold,
                               color: AppColor.color1
                           ),),
                           Text('Metro',style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 25.sp,
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.bold,
                               color: AppColor.color2

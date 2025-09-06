@@ -6,7 +6,6 @@ import '../../../core/widgets/custom_textformfield_container.dart';
 import '../../../core/widgets/station_card.dart';
 import '../cubit/logic.dart';
 import '../cubit/state.dart';
-import '../../../models/station.dart';
 
 class SearchScreen extends StatelessWidget{
   // Variables
@@ -55,7 +54,7 @@ class SearchScreen extends StatelessWidget{
             ),
           ),
           body: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding:  EdgeInsets.all(16.0.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -68,14 +67,14 @@ class SearchScreen extends StatelessWidget{
                           Icon(
                             Icons.search,
                             size: 64.sp,
-                            color: Colors.grey[400],
+                            color:AppColor.grey600,
                           ),
                           SizedBox(height: 16.h),
                           Text(
                             'Search nearby places',
                             style: TextStyle(
                               fontSize: 18.sp,
-                              color: Colors.grey[600],
+                              color: AppColor.grey600,
                               fontFamily: 'Poppins',
                             ),
                           ),
@@ -84,7 +83,7 @@ class SearchScreen extends StatelessWidget{
                             'Try: "University", "Hospital", "Museum"',
                             style: TextStyle(
                               fontSize: 14.sp,
-                              color: Colors.grey[500],
+                              color: AppColor.grey600,
                               fontFamily: 'Poppins',
                             ),
                             textAlign: TextAlign.center,
@@ -150,12 +149,6 @@ class SearchScreen extends StatelessWidget{
                                 context,
                                 station,
                                 cubit.searchQuery,
-                                onTap: () async {
-                                  await context.read<HomeCubit>().saveSearchResult(
-                                    query: context.read<HomeCubit>().searchQuery,
-                                    matched: station,
-                                  );
-                                },
                               );
                             },
                           ),
