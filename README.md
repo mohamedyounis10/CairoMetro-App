@@ -25,7 +25,7 @@ The app is optimized for performance and includes offline support so users can a
 <img width="1920" height="1080" alt="Purple and White Modern Mobile Apps Presentation" src="https://github.com/user-attachments/assets/c96aac8e-e8ba-4e3f-ba6f-96f55d741e17" />
 
 ## 📱 Live Demo
-[🎥 Watch Demo Video](https://github.com/user-attachments/assets/b4d09d83-694a-4210-9492-f9c8443a75dc)
+[🎥 Watch Demo Video](https://github.com/user-attachments/assets/3b86182b-f8ac-42d1-ba60-23f55e70b1ee)
 
 ## 🚀 Getting Started
 
